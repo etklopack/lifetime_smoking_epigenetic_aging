@@ -9,7 +9,7 @@
 # NOTE: sample variance-covariance matrices (sample.cov.g), 
 # sample means (sample.mean.g), and asymptotic variance-covariance matrix 
 # (Gamma.g) were produced from publicly available data using the following 
-# code:
+# code adapted from the lavaan.survey package:
 
 
 
@@ -20,18 +20,16 @@
 #                        nest = T)
 # 
 # for(i in clocks_list_adj) {
-#   
-#   # Names of the observed variables
+# 
 #   ov.names <- c("mort20", "cancr1314", "hibp1314", "lung1314", "heart1314", 
 #                 i, "py_gt_18", "c_smoke", "par_smoke_1", 
 #                 "par_smoke_2", "age", "race_black", "race_hispanic", 
 #                 "race_other", "gender_female", "education_0_11", "education_12", 
 #                 "education_13_15", "log_wealth", "bmi_over", "bmi_obese1", 
 #                 "bmi_obese2", "binge_1_4", "binge_5_p")
-#   
-#   # The MP-inverse duplication matrix is handy for removing redundancy
+# 
 #   Dplus <- lavaan::lav_matrix_duplication_ginv(length(ov.names))
-#   # Create a formula that includes all observed variables for svymean
+
 #   ov.formula <- as.formula(paste("~", paste(ov.names, collapse="+")))
 #   
 #   
@@ -50,6 +48,11 @@
 #   names(tmp) <- names(sample.mean.g)
 #   sample.mean.g <- tmp
 # }
+# 
+# Daniel Oberski (2014). lavaan.survey: An R Package for Complex Survey Analysis of
+# Structural Equation Models. Journal of Statistical Software, 57(1), 1-27. URL
+# http://www.jstatsoft.org/v57/i01/.
+
 
 
 
